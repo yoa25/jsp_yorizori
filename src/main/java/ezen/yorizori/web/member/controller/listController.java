@@ -33,14 +33,13 @@ public class listController extends HttpServlet {
 	 * 회원 목록 처리
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 로그인 사용자인 경우 서비스
-		// 만약 비로그인이면 안내 메시지 출력
 		HttpSession session = request.getSession();
 		Member member = (Member)session.getAttribute("loginMember");
 		
 		if(member!=null) {
 			List<Member> list = memberService.getMembers();
 			request.setAttribute("list", list);
+			
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/views/member/list.jsp");
 			rd.forward(request, response);			
 		}else {

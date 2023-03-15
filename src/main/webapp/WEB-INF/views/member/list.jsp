@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<html lang="ko">
 
+<html lang="ko">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport"
@@ -32,9 +32,9 @@
 
       <div class="row">
         <div class="col mt-3">
-          <a href="#" class="btn btn-primary">코코</a>
-          <a href="#" class="btn btn-primary">어떤 버튼을 원하세요</a>
-          <a href="/member/signup.do" class="btn btn-primary float-end">회원 등록</a>
+          <a href="#" class="btn btn-primary">코코</a> <a href="#"
+            class="btn btn-primary">어떤 버튼을 원하세요</a> <a
+            href="/member/signup.do" class="btn btn-primary float-end">회원 등록</a>
         </div>
       </div>
       <hr class="my-4">
@@ -49,15 +49,14 @@
             </tr>
           </thead>
           <tbody>
-          <c:forEach items="${list}">
-            <tr>
-              <td><a href="#">${member.id}</a></td>
-              <td>${member.name }</td>
-              <td><a href="mailto:${member.email}">${member.email}</a></td>
-              <td>${member.regdate}</td>
-            </tr>
-          
-          </c:forEach>
+            <c:forEach items="${list}" var="member">
+              <tr>
+                <td><a href="#">${member.id}</a></td>
+                <td>${member.name }</td>
+                <td><a href="mailto:${member.email}">${member.email}</a></td>
+                <td>${member.regdate}</td>
+              </tr>
+            </c:forEach>
 
           </tbody>
         </table>
